@@ -37,6 +37,11 @@ Change and Why it matters
 
    Swagger docs show clear result format. Good for frontend integration.
 
-## set up back-end
+## set up cors
 
 pip install fastapi[all]
+update main.py
+
+## set up cors
+
+install next.js
