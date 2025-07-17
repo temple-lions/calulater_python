@@ -1,6 +1,6 @@
 ## commit notes
 
-# set up back-end
+## set up back-end
 
     installed fastapi and Pydantic
 
@@ -13,26 +13,30 @@ Ready to build out more functionality
 
 Change and Why it matters
 
-# Added / GET route
+1. Added / GET route
 
-    No more 404 when Cmd+Clicking the server link. Good for health checks.
+   No more 404 when Cmd+Clicking the server link. Good for health checks.
 
-# Replaced eval()
+2. Replaced eval()
 
-    Prevents arbitrary Python execution (huge security risk).
+   Prevents arbitrary Python execution (huge security risk).
 
-# Safe AST parsing
+3. Safe AST parsing
 
-    Only allows numbers and arithmetic ops you approve.
+   Only allows numbers and arithmetic ops you approve.
 
-# Pydantic model w/ field validation
+4. Pydantic model w/ field validation
 
-    Rejects empty or too-long expressions cleanly.
+   Rejects empty or too-long expressions cleanly.
 
-# Structured error handling
+5. Structured error handling
 
-    Returns correct 400 responses for user errors (syntax, division by zero).
+   Returns correct 400 responses for user errors (syntax, division by zero).
 
-# Typed response model
+6. Typed response model
 
-    Swagger docs show clear result format. Good for frontend integration.
+   Swagger docs show clear result format. Good for frontend integration.
+
+## set up back-end
+
+pip install fastapi[all]
