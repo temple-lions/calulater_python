@@ -1,6 +1,9 @@
 "use client";
 
 import { useState } from "react";
+import CalculatorDisplay from "./components/CalculatorDiplay";
+import CalculatorButtons from "./components/CalculatorButton";
+import CalculatorResult from "./components/CalculatorResult";
 
 export default function Home() {
   const [expression, setExpression] = useState("");
@@ -28,40 +31,44 @@ export default function Home() {
       if (!res.ok) {
         setError(data.detail || "Something went wrong.");
       } else {
-        setResult(data.result);
+        if (data.error) {
+          setError(data.error);
+        } else {
+          setResult(data.result.toString());
+        }
       }
-    } catch (err) {
+    } catch {
       setError("Failed to connect to backend.");
     }
   };
 
+  const handleButtonClick = (value: string) => {
+    setExpression((prev) => prev + value);
+  };
+
+  const handleClear = () => {
+    setExpression("");
+    setResult(null);
+    setError(null);
+  };
+
   return (
-    <main className="min-h-screen flex flex-col items-center justify-center bg-gray-100 px-4">
-      <div className="bg-white rounded-xl shadow-lg p-6 max-w-md w-full">
+    <main className="min-h-screen flex items-center justify-center bg-gray-100 px-4">
+      <div className="bg-white rounded-xl shadow-lg p-6 w-full max-w-sm">
         <h1 className="text-2xl font-bold mb-4 text-center">Calculator</h1>
 
-        <input
-          type="text"
-          value={expression}
+        <CalculatorDisplay
+          expression={expression}
           onChange={(e) => setExpression(e.target.value)}
-          placeholder="Enter expression (e.g. 3+4*2)"
-          className="w-full px-4 py-2 border border-gray-300 rounded-md mb-4"
         />
 
-        <button
-          onClick={handleCalculate}
-          className="w-full bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition"
-        >
-          Calculate
-        </button>
+        <CalculatorButtons
+          onButtonClick={handleButtonClick}
+          onCalculate={handleCalculate}
+          onClear={handleClear}
+        />
 
-        {result !== null && (
-          <div className="mt-4 text-green-600 font-semibold">
-            Result: {result}
-          </div>
-        )}
-
-        {error && <div className="mt-4 text-red-500">Error: {error}</div>}
+        <CalculatorResult result={result} error={error} />
       </div>
     </main>
   );

@@ -42,6 +42,10 @@ Change and Why it matters
 pip install fastapi[all]
 update main.py
 
-## set up cors
+## set up frontend
 
 install next.js
+
+## Update Ui
+
+add conponents and cleaned page.tsx
