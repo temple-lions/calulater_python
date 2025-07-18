@@ -4,11 +4,15 @@ import { useState } from "react";
 import CalculatorDisplay from "./components/CalculatorDiplay";
 import CalculatorButtons from "./components/CalculatorButton";
 import CalculatorResult from "./components/CalculatorResult";
+import CalculatorHistory from "./components/CalculatorHistory";
 
 export default function Home() {
   const [expression, setExpression] = useState("");
   const [result, setResult] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [history, setHistory] = useState<{ expr: string; result: string }[]>(
+    []
+  );
 
   const handleCalculate = async () => {
     setResult(null);
@@ -34,7 +38,12 @@ export default function Home() {
         if (data.error) {
           setError(data.error);
         } else {
-          setResult(data.result.toString());
+          const resultString = data.result.toString();
+          setResult(resultString);
+          setHistory((prev) => [
+            { expr: expression, result: resultString },
+            ...prev,
+          ]);
         }
       }
     } catch {
@@ -69,6 +78,11 @@ export default function Home() {
         />
 
         <CalculatorResult result={result} error={error} />
+        <CalculatorHistory
+          history={history}
+          onSelect={(expr) => setExpression(expr)}
+          onClear={() => setHistory([])}
+        />
       </div>
     </main>
   );
