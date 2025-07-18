@@ -19,7 +19,7 @@ export default function CalculatorHistory({
   return (
     <div className="mt-4">
       <div className="flex justify-between items-center mb-2">
-        <h2 className="text-lg font-semibold">History</h2>
+        <h2 className="text-black text-lg font-semibold">History</h2>
         <button
           onClick={onClear}
           className="text-sm text-red-500 hover:underline"
@@ -32,7 +32,7 @@ export default function CalculatorHistory({
           <li
             key={idx}
             onClick={() => onSelect(item.expr)}
-            className="cursor-pointer bg-gray-100 p-2 rounded hover:bg-gray-200 text-sm font-mono"
+            className="cursor-pointer bg-gray-100 p-2 rounded hover:bg-gray-200 text-black text-sm font-mono"
           >
             {item.expr} = {item.result}
           </li>

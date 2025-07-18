@@ -57,3 +57,7 @@ History items appear under the calculator
 You can click to reuse expressions
 
 You can clear history with one click
+
+## Update Ui
+
+UI changes

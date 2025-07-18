@@ -10,7 +10,7 @@ export default function CalculatorDisplay({ expression, onChange }: Props) {
       value={expression}
       onChange={onChange}
       placeholder="Enter expression"
-      className="w-full px-4 py-2 border border-gray-300 rounded-md mb-4 text-right font-mono text-lg"
+      className="w-full px-4 py-2 border border-gray-300 rounded-md mb-4 text-black text-right font-mono text-lg"
     />
   );
 }

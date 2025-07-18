@@ -1,14 +1,12 @@
-type Props = {
-  onButtonClick: (value: string) => void;
-  onCalculate: () => void;
-  onClear: () => void;
-};
-
 export default function CalculatorButtons({
   onButtonClick,
   onCalculate,
   onClear,
-}: Props) {
+}: {
+  onButtonClick: (value: string) => void;
+  onCalculate: () => void;
+  onClear: () => void;
+}) {
   const buttons = [
     "7",
     "8",
@@ -29,31 +27,30 @@ export default function CalculatorButtons({
   ];
 
   return (
-    <div className="grid grid-cols-4 gap-2 mb-4">
-      {buttons.map((btn) =>
-        btn === "=" ? (
+    <div className="grid grid-cols-4 gap-2 mt-4">
+      {buttons.map((btn) => {
+        const isEquals = btn === "=";
+
+        return (
           <button
             key={btn}
-            onClick={onCalculate}
-            className="col-span-1 bg-green-500 text-white py-2 rounded-md hover:bg-green-600 font-bold"
+            onClick={() => (isEquals ? onCalculate() : onButtonClick(btn))}
+            className={`rounded p-3 text-lg ${
+              isEquals
+                ? "bg-blue-600 text-white hover:bg-blue-700"
+                : "bg-black text-white hover:bg-gray-800"
+            }`}
           >
             {btn}
           </button>
-        ) : (
-          <button
-            key={btn}
-            onClick={() => onButtonClick(btn)}
-            className="col-span-1 bg-gray-200 py-2 rounded-md hover:bg-gray-300 font-bold"
-          >
-            {btn}
-          </button>
-        )
-      )}
+        );
+      })}
+
       <button
         onClick={onClear}
-        className="col-span-4 bg-red-500 text-white py-2 rounded-md hover:bg-red-600 font-bold"
+        className="bg-red-500 text-white rounded p-3 text-lg hover:bg-red-600"
       >
-        Clear
+        C
       </button>
     </div>
   );

@@ -64,12 +64,16 @@ export default function Home() {
   return (
     <main className="min-h-screen flex items-center justify-center bg-gray-100 px-4">
       <div className="bg-white rounded-xl shadow-lg p-6 w-full max-w-sm">
-        <h1 className="text-2xl font-bold mb-4 text-center">Calculator</h1>
+        <h1 className="text-black text-2xl font-bold mb-4 text-center">
+          Calculator
+        </h1>
 
         <CalculatorDisplay
           expression={expression}
           onChange={(e) => setExpression(e.target.value)}
         />
+
+        <CalculatorResult result={result} error={error} />
 
         <CalculatorButtons
           onButtonClick={handleButtonClick}
@@ -77,7 +81,6 @@ export default function Home() {
           onClear={handleClear}
         />
 
-        <CalculatorResult result={result} error={error} />
         <CalculatorHistory
           history={history}
           onSelect={(expr) => setExpression(expr)}

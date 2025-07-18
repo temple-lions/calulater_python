@@ -7,11 +7,11 @@ export default function CalculatorResult({ result, error }: Props) {
   return (
     <>
       {result !== null && (
-        <div className="text-green-600 font-semibold text-center">
+        <div className="text-black font-semibold text-center">
           Result: {result}
         </div>
       )}
-      {error && <div className="text-red-500 text-center">Error: {error}</div>}
+      {error && <div className="text-red text-center">Error: {error}</div>}
     </>
   );
 }
