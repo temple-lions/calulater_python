@@ -63,29 +63,38 @@ export default function Home() {
 
   return (
     <main className="min-h-screen flex items-center justify-center bg-gray-100 px-4">
-      <div className="bg-white rounded-xl shadow-lg p-6 w-full max-w-sm">
-        <h1 className="text-black text-2xl font-bold mb-4 text-center">
-          Calculator
-        </h1>
+      <div className="flex flex-col lg:flex-row gap-6 w-full max-w-5xl">
+        {/* Calculator Box */}
+        <div className="bg-white rounded-xl shadow-lg p-6 w-full max-w-sm mx-auto">
+          <h1 className="text-black text-2xl font-bold mb-4 text-center">
+            Calculator
+          </h1>
 
-        <CalculatorDisplay
-          expression={expression}
-          onChange={(e) => setExpression(e.target.value)}
-        />
+          <CalculatorDisplay
+            expression={expression}
+            onChange={(e) => setExpression(e.target.value)}
+          />
 
-        <CalculatorResult result={result} error={error} />
+          <CalculatorResult result={result} error={error} />
 
-        <CalculatorButtons
-          onButtonClick={handleButtonClick}
-          onCalculate={handleCalculate}
-          onClear={handleClear}
-        />
+          <CalculatorButtons
+            onButtonClick={handleButtonClick}
+            onCalculate={handleCalculate}
+            onClear={handleClear}
+          />
+        </div>
 
-        <CalculatorHistory
-          history={history}
-          onSelect={(expr) => setExpression(expr)}
-          onClear={() => setHistory([])}
-        />
+        {/* History Box */}
+        <div className="bg-white rounded-xl shadow-lg p-6 w-full max-w-sm mx-auto">
+          <h2 className="text-xl font-semibold mb-4 text-center text-black">
+            History
+          </h2>
+          <CalculatorHistory
+            history={history}
+            onSelect={(expr) => setExpression(expr)}
+            onClear={() => setHistory([])}
+          />
+        </div>
       </div>
     </main>
   );

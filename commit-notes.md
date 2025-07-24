@@ -61,3 +61,7 @@ You can clear history with one click
 ## Update Ui
 
 UI changes
+
+# edit ui and added cyress for testing
+
+moved the made it moblie friendly and installed cypress

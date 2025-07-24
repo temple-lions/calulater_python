@@ -27,7 +27,7 @@ export default function CalculatorButtons({
   ];
 
   return (
-    <div className="grid grid-cols-4 gap-2 mt-4">
+    <div className="grid grid-cols-4 gap-3 mt-4">
       {buttons.map((btn) => {
         const isEquals = btn === "=";
 
@@ -35,7 +35,7 @@ export default function CalculatorButtons({
           <button
             key={btn}
             onClick={() => (isEquals ? onCalculate() : onButtonClick(btn))}
-            className={`rounded p-3 text-lg ${
+            className={`rounded py-4 text-lg font-medium ${
               isEquals
                 ? "bg-blue-600 text-white hover:bg-blue-700"
                 : "bg-black text-white hover:bg-gray-800"
@@ -48,7 +48,7 @@ export default function CalculatorButtons({
 
       <button
         onClick={onClear}
-        className="bg-red-500 text-white rounded p-3 text-lg hover:bg-red-600"
+        className="bg-red-500 text-white rounded py-4 text-lg font-medium hover:bg-red-600 col-span-2 col-start-2"
       >
         C
       </button>

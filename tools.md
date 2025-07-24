@@ -16,3 +16,7 @@
     jinja2                  	Templating engine (optional HTML pages)
     aiofiles                    Async file operations (uploads/downloads)
     httpx                   	Async HTTP client (for testing or calling APIs)
+
+# Cypress
+
+    Cypress is a modern end-to-end (E2E) testing framework built for the web. It's especially popular in the front-end development community for testing web applications because of its developer-friendly design and fast, reliable test execution.
