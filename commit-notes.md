@@ -65,3 +65,7 @@ UI changes
 # edit ui and added cyress for testing
 
 moved the made it moblie friendly and installed cypress
+
+# add test for subtect, divid, multiplie, and clear
+
+add tests for other funtions

@@ -6,6 +6,7 @@ type Props = {
 export default function CalculatorDisplay({ expression, onChange }: Props) {
   return (
     <input
+      data-cy="calculator-input"
       type="text"
       value={expression}
       onChange={onChange}

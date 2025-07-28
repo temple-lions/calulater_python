@@ -47,6 +47,7 @@ export default function CalculatorButtons({
       })}
 
       <button
+        data-cy="clear-button"
         onClick={onClear}
         className="bg-red-500 text-white rounded py-4 text-lg font-medium hover:bg-red-600 col-span-2 col-start-2"
       >
